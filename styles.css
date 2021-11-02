@@ -1,0 +1,8 @@
+.btn-success:hover {
+    color: #fff;
+    background-color: #55bb07 !important;
+}
+
+.sidebar .nav-item .nav-link i {
+    font-size: 3rem !important;
+}
