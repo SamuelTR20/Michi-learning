@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700&display=swap');
 body{
     background-color: #235390;
 }
+.item-lectura{
+    background-color: #dce7f538;
+    border-radius: 20px;
+
+}
+.item-lectura p{
+    text-align: justify;
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 3vh;
+    
+}
+.item-lectura h1{
+    color: #202f5a;
+    font-family: 'Zen Old Mincho', serif;
+}
+
+.item-lect img{
+    filter: drop-shadow(2px 4px 6px rgb(31, 34, 75));
+    margin: 0 auto;
+}
+
+.iconos i, .iconos span{
+    padding: 5px;
+    color: rgb(31, 24, 24);
+    font-size: 20px;
+    
+       
+}
+.item-lect{
+    
+    border-radius: 20px;
+}
+.sound{font-size: 20px;}
