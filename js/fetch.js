@@ -11,10 +11,6 @@ function fetchGET(){
             
             json.forEach(element => {
 
-                console.log(element.title);
-                console.log(element.sinopsis);
-
-
                
                 const $contenedor = document.createElement("div");
                  $contenedor.innerHTML=`
@@ -52,24 +48,3 @@ function fetchGET(){
 fetchGET();
 
 
-// document.addEventListener("click",e=>{
-// e.preventDefault()
-// console.log(e.target);
-// if(e.target.classList.contains("btn-leer")){
-//     id=(e.target.getAttribute("href"));
-//     console.log(e.target.getAttribute("href"));
-// }
-
-    
-   
-// });
-
-
-
-// $btnEnviar.addEventListener("click", () => {
-// 	const mensaje = $mensaje.value;
-// 	if (!mensaje) return alert("Escribe un mensaje");
-// 	if (window.opener) {
-// 		window.opener.establecerMensaje(mensaje);
-// 	}
-// });

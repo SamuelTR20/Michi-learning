@@ -10,7 +10,7 @@ async function fetchGET(){
         redirect: 'follow'
       };
       
-    await fetch(`http://localhost:3000/apis/lectura.php?id=${id}`, requestOptions)
+    await fetch(`./apis/lectura.php?id=${id}`, requestOptions)
         .then(response => response.json())
         .then(result =>{ 
             resultados = result
