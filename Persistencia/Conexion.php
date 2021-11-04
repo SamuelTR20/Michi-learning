@@ -6,8 +6,8 @@
 function conexion(){
 $servidor = "localhost"; 
 $baseDatos = "michilearningdb";
-$usuarioBd = "root";
-$passwordBd = "papa";
+$usuarioBd = "michi";
+$passwordBd = "123";
 $connLocalhost = mysqli_connect($servidor, $usuarioBd, $passwordBd) or die(mysqli_error($connLocalhost));
 
 
