@@ -3,6 +3,17 @@
     background-color: #55bb07 !important;
 }
 
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0b51bb !important;
+}
+
 .sidebar .nav-item .nav-link i {
     font-size: 3rem !important;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #0B5ED7 !important;
 }

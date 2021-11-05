@@ -29,7 +29,7 @@ async function fetchGET(){
            
             
             <h1 class="mb-5"><i>${result.title}</i></h1>
-            <p class="pb-5">${result.body}</p>  
+            <p class="pb-5 text-dark">${result.body}</p>  
             `;
               $contenedor.classList.add("col-auto","col-xs-12", "p-5", "text-center","p-3");
 

@@ -6,9 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="icon" href="./assetss/imgs/Logo.png" />
+
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
 	<link rel="stylesheet" href="./styles.css" />
 
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -43,11 +45,11 @@
 					¡La forma divertida, efectiva y gratis de aprender un idioma!
 				</p>
 
-				<a href="./base.html"><button type="button" class="btn btn-success btn-lg btn-block mt-5 w-50 start-button"
+				<a href="./base.html"><button type="button" class="btn btn-success btn-lg btn-block mt-5 w-50 start-button text-white"
 					style="background-color: #61e002; height: 18%">
 					Comenzar
 				</button></a>
-				<button type="button" class="btn btn-primary btn-lg btn-block mt-5 w-50" style="height: 18%">
+				<button type="button" class="btn btn-primary btn-lg btn-block mt-5 w-50" style="height: 18%; ">
 					Registrarme
 				</button>
 			</div>

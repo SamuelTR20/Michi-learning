@@ -11,15 +11,15 @@ function fetchGET(){
             
             json.forEach(element => {
 
-               
+                if(element.sinopsis.length > 150) element.sinopsis = element.sinopsis.substring(0,150) + "...";
                 const $contenedor = document.createElement("div");
                  $contenedor.innerHTML=`
                  <div class="card">
-                   <img src=${element.image} class="card-img-top" alt="..."/>
+                   <img src=${element.image} class="card-img-top" alt="..." style="height: 525px"/>
                    <div class="card-body">
-                     <h5 class="card-title">${element.title}</h5>
-                     <p class="card-text">${element.sinopsis}</p>
-                     <a href="lectura.html?id=${element.id}" class="btn btn-primary btn-leer">Leer libro</a>
+                     <h5 class="card-title text-dark"><strong>${element.title}</strong></h5>
+                     <p class="card-text text-dark">${element.sinopsis}</p>
+                     <a href="lectura.html?id=${element.id}" class="btn btn-primary btn-leer float-end">Leer libro</a>
                    </div>
                  </div>
                  `;
