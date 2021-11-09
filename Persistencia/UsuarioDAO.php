@@ -4,8 +4,18 @@ function agregarUsuario($name, $email, $contrasenia){
     include_once("Conexion.php");
 
     $conexion= conexion();
+    // get highest id in the table user
+    $sql = "SELECT MAX(id) FROM user";
+
+    $id = mysqli_query($conexion, $sql) or trigger_error("La inserción de usuarios falló");
+    
+    $id = mysqli_fetch_array($id);
+    $id = $id[0];
+    $id = $id + 1;
+
+    echo $id;
     $consulta = sprintf(
-        "INSERT INTO user (name, email, passsword) VALUES ( '%s', '%s',  aes_encrypt('%s', 'key'))",
+        "INSERT INTO user (id, name, email, password) VALUES ($id, '%s', '%s',  aes_encrypt('%s', 'key'))",
         mysqli_real_escape_string($conexion, trim($name)),
         mysqli_real_escape_string($conexion, trim($email)),
         mysqli_real_escape_string($conexion, trim($contrasenia)),
@@ -29,7 +39,7 @@ function iniciarSesion($email, $contrasenia){
     $permitido = false;
 
   $consulta = sprintf(
-    "SELECT id, name, email, passsword FROM user WHERE email = '%s' AND aes_decrypt(password, 'key') = '%s'",
+    "SELECT id, name, email, password FROM user WHERE email = '%s' AND aes_decrypt(password, 'key') = '%s'",
     mysqli_real_escape_string($conexion, trim($email)),
     mysqli_real_escape_string($conexion, trim($contrasenia))
   );
