@@ -9,7 +9,7 @@ function obtenerLecturas(){
     while($lectura = mysqli_fetch_assoc($resultado)){
         $lecturas[] = $lectura;
     }
-    $conexion->close();;
+    $conexion->close();
     // echo json_encode($lecturas);
     return $lecturas;
 
