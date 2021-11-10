@@ -13,7 +13,7 @@ function agregarUsuario($name, $email, $contrasenia){
     $id = $id[0];
     $id = $id + 1;
 
-    echo $id;
+ 
     $consulta = sprintf(
         "INSERT INTO user (id, name, email, password) VALUES ($id, '%s', '%s',  aes_encrypt('%s', 'key'))",
         mysqli_real_escape_string($conexion, trim($name)),
