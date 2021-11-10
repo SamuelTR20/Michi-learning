@@ -45,13 +45,13 @@
 					¡La forma divertida, efectiva y gratis de aprender un idioma!
 				</p>
 
-				<a href="./base.html"><button type="button" class="btn btn-success btn-lg btn-block mt-5 w-50 start-button text-white"
+				<a href="./login.html"><button type="button" class="btn btn-success btn-lg btn-block mt-5 w-50 start-button text-white"
 					style="background-color: #61e002; height: 18%">
 					Comenzar
 				</button></a>
-				<button type="button" class="btn btn-primary btn-lg btn-block mt-5 w-50" style="height: 18%; ">
+				<a href="./register.html"><button type="button" class="btn btn-primary btn-lg btn-block mt-5 w-50" style="height: 18%; ">
 					Registrarme
-				</button>
+				</button></a>
 			</div>
 		</div>
 	</div>
