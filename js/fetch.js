@@ -52,13 +52,12 @@ document.addEventListener("DOMContentLoaded",()=>{
   const $input = document.getElementById("button-search");
   $input.addEventListener("keyup", ()=>{
     $tarjetas = document.querySelectorAll(".card-lectura");
-    console.log("ENTRA EL BUSCADOR: ", $tarjetas)
+    
 
     $tarjetas.forEach($t=>{
       const $titulo = $t.querySelector(".card-title").textContent;
 
-      console.log($titulo)
-      console.log($input.value)
+  
 
       
       if(!$titulo.toLowerCase().match($input.value.toLowerCase()) ){
