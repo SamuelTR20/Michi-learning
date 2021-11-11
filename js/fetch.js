@@ -14,7 +14,7 @@ function fetchGET(){
                 if(element.sinopsis.length > 150) element.sinopsis = element.sinopsis.substring(0,150) + "...";
                 const $contenedor = document.createElement("div");
                  $contenedor.innerHTML=`
-                 <div class="card">
+                 <div class="card ">
                    <img src=${element.image} class="card-img-top" alt="..." style="height: 525px"/>
                    <div class="card-body">
                      <h5 class="card-title text-dark"><strong>${element.title}</strong></h5>
@@ -23,7 +23,7 @@ function fetchGET(){
                    </div>
                  </div>
                  `;
-             $contenedor.classList.add("col-lg-4");
+             $contenedor.classList.add("col-lg-4", "card-lectura");
     
             $cards.appendChild($contenedor);
 
@@ -46,5 +46,35 @@ function fetchGET(){
 }
 
 fetchGET();
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const $input = document.getElementById("button-search");
+  $input.addEventListener("keyup", ()=>{
+    $tarjetas = document.querySelectorAll(".card-lectura");
+    console.log("ENTRA EL BUSCADOR: ", $tarjetas)
+
+    $tarjetas.forEach($t=>{
+      const $titulo = $t.querySelector(".card-title").textContent;
+
+      console.log($titulo)
+      console.log($input.value)
+
+      
+      if(!$titulo.toLowerCase().match($input.value.toLowerCase()) ){
+        $t.setAttribute("hidden", "")
+      }else if($titulo.toLowerCase().match($input.value.toLowerCase())){
+        $t.removeAttribute("hidden");
+     }
+    if($input.value==""){
+      $t.removeAttribute("hidden");
+    }   
+      
+    })
+
+  })
+
+
+})
 
 

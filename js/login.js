@@ -38,7 +38,7 @@ $buttonLogin.addEventListener("click",(e)=>{
     e.preventDefault();
    const $email = document.getElementById("exampleInputEmail").value.trim(),
     $password =  document.getElementById("exampleInputPassword").value.trim(),
-    $loginError = document.getElementById("register-error");
+    $loginError = document.getElementById("login-error");
 
    if($email =="" || $password ==""){
        console.log("Llena todos los campos requeridos")
