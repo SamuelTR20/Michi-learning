@@ -55,21 +55,24 @@ function listen(){
  $texto = document.getElementById("lectura-texto").textContent ;
     
  const mensaje = new SpeechSynthesisUtterance();
-
+ 
  $botonEscuchar.addEventListener("click",()=>{
-   
+  const speech = window.speechSynthesis;
   
    $botonEscuchar.classList.toggle("volume-active");
   console.log($botonEscuchar)
 
     if($botonEscuchar.classList.contains( 'volume-active' )){
  
+      
       console.log("Entra aqui")
     mensaje.lang ="en-US";
   
     mensaje.text = $texto;
-    window.speechSynthesis.speak(mensaje);
+    speech.speak(mensaje);
   
+  }else{
+    speech.pause()
   }
  })
 
