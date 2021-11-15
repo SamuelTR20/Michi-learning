@@ -113,10 +113,13 @@ function seleccionarPalabra(){
   const $divPalabras = document.getElementById("lectura-texto");
 
   $divPalabras.addEventListener("click", (e)=>{
-    console.log(e.target.tagName=="SPAN")
+   
     if(e.target.tagName=="SPAN"){
 
+      //Imprime en consola palabra que le diste clic
           console.log(e.target.textContent)
+
+      //Aqui abrir el pop up
 
      }
    
