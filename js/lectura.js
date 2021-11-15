@@ -29,13 +29,14 @@ async function fetchGET(){
            
             
             <h1 class="mb-5"><i>${result.title}</i></h1>
-            <p class="pb-5 text-dark" id="lectura-texto">${result.body}</p>  
+             <p class="pb-5 text-dark" id="lectura-texto">${result.body}</p>
             `;
               $contenedor.classList.add("col-auto","col-xs-12", "p-5", "text-center","p-3");
 
              $cards.appendChild($contenedor);
 
             listen()
+            dividirPalabras()
 
 
         })
@@ -77,7 +78,49 @@ function listen(){
  })
 
 
+}
 
+function dividirPalabras(){
+const $divPalabras = document.getElementById("lectura-texto");
+
+$divPalabras.addEventListener("mouseover",()=>{
+
+  
+  if(!$divPalabras.classList.contains( 'palabras-divididas' )){
+    $divPalabras.classList.add("palabras-divididas");
+    console.log("ENTRA")
+    palabras = $divPalabras.textContent.split(" ");
+    $divPalabras.textContent=""
+    palabras.forEach(palabra => {
+      
+      $palabra = document.createElement("span");
+      $palabra.textContent=palabra;
+      $divPalabras.appendChild($palabra);
+      espacio = document.createTextNode(" ");
+      $divPalabras.appendChild(espacio);
+    });
+   
+
+
+    seleccionarPalabra()
+  }
+  
+})
+
+}
+
+function seleccionarPalabra(){
+  const $divPalabras = document.getElementById("lectura-texto");
+
+  $divPalabras.addEventListener("click", (e)=>{
+    console.log(e.target.tagName=="SPAN")
+    if(e.target.tagName=="SPAN"){
+
+          console.log(e.target.textContent)
+
+     }
+   
+  })
 
 }
 
