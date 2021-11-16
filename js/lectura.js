@@ -117,17 +117,21 @@ function seleccionarPalabra() {
         //create a div
         console.log(e.clientY)
         const $div = document.createElement("div");
+
+        const $escucha = document.createElement("i");
+
         $div.classList.add("popup");
-        $div.innerHTML = `<p> ${palabra} </p>`;
+        $div.innerHTML = `<i class="fas fa-headphones-alt oido" ></i> <i class="far fa-save libro"> </i> <i class="fas fa-times cerrar"></i> <p> ${palabra} </p>`;
         $div.style.position = "absolute";
-        $div.style.top = (e.pageY - 65) + "px";
-        $div.style.left = (e.pageX - 40)   + "px";
+        $div.style.top = (e.pageY - 90) + "px";
+        $div.style.left = (e.pageX - 100)   + "px";
         // $div.style.zIndex = "1";
         $div.style.boxShadow = "0px 0px 5px black";
         $div.style.fontSize = "20px";
         $div.style.fontWeight = "bold";
-
+        
         var currentDiv = document.getElementById("page-top").appendChild($div);
+
         console.log("aver")
 
         //Aqui cerrar el pop up

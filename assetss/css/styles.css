@@ -38,18 +38,51 @@ body{
 
 
 .popup{
-    width: fit-content;
-    height: fit-content;
+    width: 200px;
+    height: 70px;
     color :#000;
     border-radius: 7px;
     background-color: #fff;
+    text-align: center;
+    
+
     
     
 }
 
 .popup p{
-    display:inline-block;
+    display: table-cell;
+    vertical-align: middle;
     margin-bottom: 0;
     padding : 5px 15px;
+    width: inherit;
 
+}
+
+.oido, .libro{
+    margin-bottom: 10px;
+    margin-top: 8px;
+
+}
+
+.libro{
+    padding-left: 10px; 
+}
+
+
+.oido{
+    padding-right: 10px; 
+
+}
+/* 
+.popup i:last-of-type{
+    position: absolute !important;
+    top : 5px !important;
+    right: 5px !important;
+
+} */
+
+.cerrar {
+    position: absolute;
+    right: 7px;
 }
