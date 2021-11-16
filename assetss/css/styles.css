@@ -35,3 +35,21 @@ body{
     border-radius: 20px;
 }
 .sound{font-size: 20px;}
+
+
+.popup{
+    width: fit-content;
+    height: fit-content;
+    color :#000;
+    border-radius: 7px;
+    background-color: #fff;
+    
+    
+}
+
+.popup p{
+    display:inline-block;
+    margin-bottom: 0;
+    padding : 5px 15px;
+
+}
