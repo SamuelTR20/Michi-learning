@@ -57,7 +57,7 @@ function listen() {
     const speech = window.speechSynthesis;
 
     $botonEscuchar.classList.toggle("volume-active");
-    console.log($botonEscuchar);
+   
 
     if ($botonEscuchar.classList.contains("volume-active")) {
       mensaje.lang = "en-US";
@@ -65,7 +65,7 @@ function listen() {
       mensaje.text = $texto;
       speech.speak(mensaje);
     } else {
-      speech.pause();
+      speech.cancel();
     }
   });
 }
@@ -76,7 +76,7 @@ function dividirPalabras() {
   $divPalabras.addEventListener("mouseover", () => {
     if (!$divPalabras.classList.contains("palabras-divididas")) {
       $divPalabras.classList.add("palabras-divididas");
-      console.log("ENTRA");
+     
       palabras = $divPalabras.textContent.split(" ");
       $divPalabras.textContent = "";
       palabras.forEach((palabra) => {
@@ -111,17 +111,17 @@ function seleccionarPalabra() {
         let data = await response.json();
         
         palabra = data.text[0]
-        console.log(palabra)
+       
 
         //Aqui abrir el pop up
         //create a div
-        console.log(e.clientY)
+      
         const $div = document.createElement("div");
 
-        const $escucha = document.createElement("i");
-
+        let popupAbierto = true;
         $div.classList.add("popup");
-        $div.innerHTML = `<i class="fas fa-headphones-alt oido" ></i> <i class="far fa-save libro"> </i> <i class="fas fa-times cerrar"></i> <p> ${palabra} </p>`;
+        $div.setAttribute("id","pop-up-word")
+        $div.innerHTML = `<i id="listen-word" class="fas fa-headphones-alt oido" ></i> <i id="save-book" class="far fa-save libro"> </i> <i class="fas fa-times cerrar"></i> <p id="palabraTraducida"> ${palabra} </p>`;
         $div.style.position = "absolute";
         $div.style.top = (e.pageY - 90) + "px";
         $div.style.left = (e.pageX - 100)   + "px";
@@ -130,9 +130,36 @@ function seleccionarPalabra() {
         $div.style.fontSize = "20px";
         $div.style.fontWeight = "bold";
         
-        var currentDiv = document.getElementById("page-top").appendChild($div);
+        const $currentDiv = document.getElementById("page-top");
+        $currentDiv.appendChild($div)
+        // Escuchar palabra seleccionada
+        $escucharPalabra= document.getElementById("listen-word");
+        $escucharPalabra.addEventListener("click",(e)=>{
+        
 
-        console.log("aver")
+          const palabraTraduccion = new SpeechSynthesisUtterance();
+          const speech = window.speechSynthesis;
+          palabraTraduccion.lang = "en-US";
+          palabraTraduccion.text = word;
+          speech.speak(palabraTraduccion);
+
+
+        })
+
+        $buttonCerrar = document.querySelector(".cerrar");
+        $buttonGuardar = document.getElementById("save-book");
+        $palabraTraducida = document.getElementById("palabraTraducida")
+        document.addEventListener("click",(clickE)=>{
+        
+        if(clickE.target != $div && popupAbierto && clickE.target != $escucharPalabra && $buttonGuardar != clickE.target && clickE.target != $palabraTraducida){
+          console.log(clickE.target)
+          popupAbierto = false
+          $currentDiv.removeChild($div)
+        }
+        
+         
+        })
+        
 
         //Aqui cerrar el pop up
 
