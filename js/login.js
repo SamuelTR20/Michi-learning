@@ -22,7 +22,12 @@ async function apiRegistro( email, password, $loginError){
         $loginError.style.display="block";
         
       }else{
+
+        //create a session
+        sessionStorage.setItem("user_id", result.user);
+        sessionStorage.setItem("user_name", result.name);
         window.location.href = "base.html";
+
       }
 
 

@@ -37,7 +37,9 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
         }
         $returnData = [
             'success' => 1,
-            'message' => 'Se ha logueado con exito'
+            'message' => 'Se ha logueado con exito',
+            'user' => $iniciar['id'],
+            'name' => $iniciar['name']
         ];
         header("HTTP/1.1 200 OK");
         echo json_encode($returnData);

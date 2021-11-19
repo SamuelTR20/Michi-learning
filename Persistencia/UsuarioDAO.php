@@ -49,9 +49,9 @@ function iniciarSesion($email, $contrasenia){
   
   if (mysqli_num_rows($resultado) == 1) {
 
-    $permitido = true;
+    $usuario = $resultado->fetch_assoc();
     $conexion->close();
-    return $permitido;
+    return $usuario;
 
   } else {
     $conexion->close();
