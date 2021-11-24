@@ -146,6 +146,36 @@ function seleccionarPalabra() {
 
         })
 
+
+        $guardarPalabra= document.getElementById("save-book");
+
+        $guardarPalabra.addEventListener("click",(e)=>{
+        
+
+          
+          async function guardar() {
+            let formdata = new FormData();
+            formdata.append("user", user_id);
+            formdata.append("word", word);
+
+            let requestOptions = {
+                method: 'POST',
+                body: formdata,
+            };
+            let response = await fetch(
+              `./apis/guardarPalabra.php`,
+              requestOptions
+            );
+
+            console.log(response)
+          
+          }
+
+          guardar();
+        })
+
+
+
         $buttonCerrar = document.querySelector(".cerrar");
         $buttonGuardar = document.getElementById("save-book");
         $palabraTraducida = document.getElementById("palabraTraducida")

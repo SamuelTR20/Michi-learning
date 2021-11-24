@@ -1,5 +1,10 @@
 <?php 
+// declare(strict_types=1);
+
 function agregarPalabraUsuario($idUser){
+
+
+
     include_once("Conexion.php");
 
     $conexion= conexion();
@@ -39,6 +44,8 @@ function agregarPalabraUsuario($idUser){
 }
 
 function agregarPalabra($word){
+
+
     include_once("Conexion.php");
 
     $conexion= conexion();
@@ -54,7 +61,7 @@ function agregarPalabra($word){
   
   
     $consulta = sprintf(
-        "INSERT INTO word (id, word, learned) VALUES ($id, '%s', 'false')",
+        "INSERT INTO word (id, word, learned) VALUES ($id, '%s', 0)",
         mysqli_real_escape_string($conexion, trim($word))
       );
     $resultado = mysqli_query($conexion, $consulta) or trigger_error("La inserción de palaba fallo falló");
@@ -67,3 +74,28 @@ function agregarPalabra($word){
     return false;
   }
 }
+
+
+
+
+// final class ServerLogger {
+
+//   /**
+//    * send a log message to the STDOUT stream.
+//    *
+//    * @param array<int, mixed> $args
+//    *
+//    * @return void
+//    */
+//   public static function log(...$args): void {
+//       foreach ($args as $arg) {
+//           if (is_object($arg) || is_array($arg) || is_resource($arg)) {
+//               $output = print_r($arg, true);
+//           } else {
+//               $output = (string) $arg;
+//           }
+
+//           fwrite(STDOUT, $output . "\n");
+//        }
+//   }
+// }
