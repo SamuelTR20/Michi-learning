@@ -17,3 +17,19 @@
     color: #fff;
     background-color: #0B5ED7 !important;
 }
+
+
+.revisar:hover {
+    
+    color: #55bb07 !important;
+    font-size:2.5em !important;
+}
+
+
+.censura{
+    background: #4E73DF;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 10px;
+    color : #fff !important;
+}
