@@ -4,7 +4,7 @@ function obtenerPalabras($idUsuario){
 
   $conexion = conexion();
   $consulta =  sprintf("SELECT  DISTINCTROW word.id as word_id, word.learned as aprendida, word.word as word, 
-  userword.id_user as usuario, userword.id_words from word as word join userword as userword on userword.id_user = '%d' and word.id = userword.id_words",
+  userword.id_user as usuario, word.esp as esp, userword.id_words from word as word join userword as userword on userword.id_user = '%d' and word.id = userword.id_words",
   mysqli_real_escape_string($conexion, $idUsuario));
   $resultado = mysqli_query($conexion, $consulta);
   $palabras = array();
