@@ -1,5 +1,22 @@
 <?php 
-// declare(strict_types=1);
+function obtenerPalabras($idUsuario){
+  include_once("Conexion.php");
+
+  $conexion = conexion();
+  $consulta =  sprintf("SELECT  DISTINCTROW word.id as word_id, word.learned as aprendida, word.word as word, 
+  userword.id_user as usuario, userword.id_words from word as word join userword as userword on userword.id_user = '%d' and word.id = userword.id_words",
+  mysqli_real_escape_string($conexion, $idUsuario));
+  $resultado = mysqli_query($conexion, $consulta);
+  $palabras = array();
+  while($palabra = mysqli_fetch_assoc($resultado)){
+      $palabras[] = $palabra;
+  }
+  $conexion->close();
+  // echo json_encode($lecturas);
+  return $palabras;
+
+
+}
 
 function agregarPalabraUsuario($idUser){
 
@@ -43,7 +60,7 @@ function agregarPalabraUsuario($idUser){
   }
 }
 
-function agregarPalabra($word){
+function agregarPalabra($word,$esp){
 
 
     include_once("Conexion.php");
@@ -61,8 +78,9 @@ function agregarPalabra($word){
   
   
     $consulta = sprintf(
-        "INSERT INTO word (id, word, learned) VALUES ($id, '%s', 0)",
-        mysqli_real_escape_string($conexion, trim($word))
+        "INSERT INTO word (id, word, learned, esp) VALUES ($id, '%s', 0, '%s')",
+        mysqli_real_escape_string($conexion, trim($word)),
+        mysqli_real_escape_string($conexion, trim($esp))
       );
     $resultado = mysqli_query($conexion, $consulta) or trigger_error("La inserción de palaba fallo falló");
 

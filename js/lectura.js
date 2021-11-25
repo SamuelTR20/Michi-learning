@@ -157,6 +157,7 @@ function seleccionarPalabra() {
             let formdata = new FormData();
             formdata.append("user", user_id);
             formdata.append("word", word);
+            formdata.append("esp", palabra);
 
             let requestOptions = {
                 method: 'POST',

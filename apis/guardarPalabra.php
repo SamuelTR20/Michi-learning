@@ -20,8 +20,10 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
     $data = $_POST;
     if(!isset($data["user"]) 
     || !isset($data["word"])
+    || !isset($data["esp"])
     || empty(trim($data["user"]))
     || empty(trim($data["word"]))
+    || empty(trim($data["esp"]))
     ){
 
         $fields = ['fields' => ['user','word']];
@@ -29,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
     }else{
 
         include $_SERVER["DOCUMENT_ROOT"]."/Persistencia/Palabra.php";
-        $registro = agregarPalabra($_POST["word"]);
+        $registro = agregarPalabra($_POST["word"],$_POST["esp"]);
         
         if ($registro == null){
             $returnData = msg(0,404,'No se registro correctamente');
