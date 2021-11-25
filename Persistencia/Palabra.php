@@ -76,6 +76,31 @@ function agregarPalabra($word){
 }
 
 
+function aprenderPalabra($idWord){
+
+    include_once("Conexion.php");
+
+    $conexion= conexion();
+
+    $consulta = sprintf(
+      "UPDATE word SET learned = 1 WHERE id = '%d'",
+      mysqli_real_escape_string($conexion, $idWord)
+    );
+  
+    $resultado = mysqli_query($conexion, $consulta) or trigger_error("La inserción de usuarios falló");  
+  
+    // ServerLogger::log($resultado);
+
+    if ($resultado) {
+      $conexion->close();
+      return true;
+      } else {
+      $conexion->close();
+      return false;
+    }
+  }
+
+
 
 
 // final class ServerLogger {
