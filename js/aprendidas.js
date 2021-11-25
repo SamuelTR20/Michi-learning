@@ -32,7 +32,7 @@ function obtenerPalabras(){
                             
                             <div class="text-dark fw-bold h5 listen-word" data-eng="${element.word}" ><i class="fas fa-headphones p-2 pb-0  listen-word" data-eng="${element.word}"></i><span class="listen-word" data-eng="${element.word}">Escuchar</span></div>
                         </div>
-                        <div class="col-auto"><i class="far fa-check-square fa-3x text-gray-300 revisar" role="button"></i></div>
+                       
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ function obtenerPalabras(){
     
                 e.target.textContent = e.target.dataset.esp;
                 console.log(e.target.dataset.esp)
-           }else if(e.target.classList.contains( 'revisar' )){}
+           }
     
     
     
