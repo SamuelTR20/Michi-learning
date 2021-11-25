@@ -31,6 +31,14 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
     }else{
 
         include $_SERVER["DOCUMENT_ROOT"]."/Persistencia/UsuarioDAO.php";
+        $existe = userExist($_POST["email"]);
+
+        if($existe){
+            $returnData = msg(0,422,'El usuario ya existe');
+            echo json_encode($returnData);
+            return false;
+        }
+        
         $registro = agregarUsuario($_POST["name"],$_POST["email"],$_POST["password"]);
         
         if ($registro == null){

@@ -16,11 +16,11 @@ function obtenerPalabras() {
         if (element.aprendida == 0) {
           const $contenedor = document.createElement("div");
           $contenedor.innerHTML = `
-        <div class="card shadow border-start-primary py-2">
+        <div class="card shadow border-start-primary py-2 ">
             <div class="card-body">
                 <div class="row align-items-center no-gutters">
                     <div class="col me-2">
-                        <div class="text-uppercase text-primary fw-bold text-md mb-1" data-word="${element.word_id}" data-eng="${element.word}" ><span>${element.word}</span></div>
+                        <div class="text-uppercase text-primary fw-bold text-md mb-1" data-word="${element.word_id}" data-eng="${element.word}" ><span class= "card-title">${element.word}</span></div>
                         
                         <div class="text-uppercase text-primary fw-bold text-md mb-1 censura" data-esp="${element.esp}" ><span class="censura" data-esp="${element.esp}">Clic para ver</span></div>
                         
@@ -33,7 +33,7 @@ function obtenerPalabras() {
     
 
         `;
-          $contenedor.classList.add("col-md-6", "col-xl-3", "col-xl-4", "mb-5", `word-${element.word_id}`);
+          $contenedor.classList.add("col-md-6", "col-xl-3", "col-xl-4","card-lectura", "mb-5", `word-${element.word_id}`);
 
           $cards.appendChild($contenedor);
         }
@@ -84,6 +84,26 @@ function escuchar() {
   });
 }
 
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const $input = document.getElementById("button-search");
+  $input.addEventListener("keyup", ()=>{
+    $tarjetas = document.querySelectorAll(".card-lectura");
+
+    $tarjetas.forEach($t=>{
+      const $titulo = $t.querySelector(".card-title").textContent;
+      if(!$titulo.toLowerCase().match($input.value.toLowerCase()) ){
+        $t.setAttribute("hidden", "")
+      }else if($titulo.toLowerCase().match($input.value.toLowerCase())){
+        $t.removeAttribute("hidden");
+     }
+    if($input.value==""){
+      $t.removeAttribute("hidden");
+    }   
+    })
+  })
+})
 // console.log(e.target.dataset.eng)
 // const palabraTraduccion = new SpeechSynthesisUtterance();
 // const speech = window.speechSynthesis;

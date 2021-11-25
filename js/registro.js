@@ -20,8 +20,9 @@ $buttonRegistro = document.getElementById("button-registro")
     .then(result =>{
       if(result.success == 0){
         $registerError.style.display="block";
+        $registerError.innerHTML = result.message;
       }else{
-        window.location.href = "base.html";
+        window.location.href = "login.html";
       }  
       
     })
@@ -37,7 +38,7 @@ $buttonRegistro.addEventListener("click",(e)=>{
    const $name = document.getElementById("exampleInputName").value.trim(),
     $email = document.getElementById("exampleInputEmail").value.trim(),
     $password =  document.getElementById("exampleInputPassword").value.trim(),
-   $registerError = document.getElementById("login-error");
+   $registerError = document.getElementById("register-error");
 
    if($name.trim == "" || $email =="" || $password ==""){
        console.log("Llena todos los campos requeridos")

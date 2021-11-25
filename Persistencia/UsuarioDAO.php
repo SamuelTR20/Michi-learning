@@ -59,4 +59,33 @@ function iniciarSesion($email, $contrasenia){
   }
    
 }
+
+
+function userExist($email){
+
+  include_once("Conexion.php");
+
+    $conexion= conexion();
+    $permitido = false;
+
+  $consulta = sprintf(
+    "SELECT id, name, email FROM user WHERE email = '%s'",
+    mysqli_real_escape_string($conexion, trim($email)),
+  );
+
+  $resultado = mysqli_query($conexion, $consulta) or trigger_error("El registro de usuario falló");
+
+  
+  if (mysqli_num_rows($resultado) == 1) {
+
+    $usuario = $resultado->fetch_assoc();
+    $conexion->close();
+    return $usuario;
+
+  } else {
+    $conexion->close();
+    return $permitido;
+  }
+
+}
 ?>

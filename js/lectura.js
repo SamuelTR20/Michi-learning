@@ -81,7 +81,7 @@ function dividirPalabras() {
       $divPalabras.textContent = "";
       palabras.forEach((palabra) => {
         $palabra = document.createElement("span");
-
+        $palabra.style.cursor = "pointer";
         $palabra.textContent = palabra;
         $divPalabras.appendChild($palabra);
         espacio = document.createTextNode(" ");
