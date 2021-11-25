@@ -168,7 +168,14 @@ function seleccionarPalabra() {
               requestOptions
             );
 
-            console.log(response)
+           if (response.ok) {
+            $guardarPalabra.classList.remove("fa-save") 
+            $guardarPalabra.classList.add("fa-check-circle");
+            $guardarPalabra.style.color = "#0DC143";
+
+            
+
+            }
           
           }
 
